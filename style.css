@@ -1,0 +1,91 @@
+/*Reset CS truoc khi bat dau*/
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+body {
+    height: 100vh;
+}
+
+.search-area {
+    height: 60px;
+    width: 100%;
+    background-color: #0070F4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.search-area input {
+    width: 500px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+.search-area .staff-name {
+
+}
+.container {
+    height: 90%;
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.container .product-list {
+    height: 100%;
+    width: 70%;
+}
+.container .payment-area {
+    height: calc(100% - 20px);
+    width: 30%;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.container .payment-area button {
+    margin: 10px;
+    width: 90%;
+    height: 50px;
+    border: none;
+    background-color: #0070F4;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+
+}
+
+.container .product-list .product {
+    height: calc(100% - 50px);
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+.container .product-list .note input {
+    height: 40px;
+    width: calc(100% - 10px);
+    border-radius: 5px;
+    border: none;
+    padding: 5px 5px;
+}
+.footer {
+    height: calc(100% - 60px - 90%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.btn {
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    height: 30px;
+    color: white;
+    background-color: #0070F4;
+}
