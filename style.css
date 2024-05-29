@@ -3,14 +3,14 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: "Montserrat", "Helvetica";
 }
 body {
     height: 100vh;
 }
 
 .search-area {
-    height: 60px;
+    height: 8%;
     width: 100%;
     background-color: #0070F4;
     display: flex;
@@ -18,27 +18,52 @@ body {
     justify-content: space-between;
     padding: 0 10px;
 }
-.search-area input {
-    width: 500px;
+.search-area .search-bar {
+    width: 80%;
+    height: 40px;
+}
+.search-area .search-bar i {
+    color: white;
+    padding: 5px;
+}
+.search-area .search-bar input {
+    width: 50%;
     height: 40px;
     border-radius: 5px;
     border: none;
 }
 .search-area .staff-name {
-
+    width: 20%;
+    color: white;
 }
+
 .container {
-    height: 90%;
+    height: 84%;
     width: 100%;
     background-color: whitesmoke;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
 }
-.container .product-list {
+.container .products {
     height: 100%;
     width: 70%;
 }
+.container .products .product {
+    height: calc(100% - 50px);
+    width: 100%;
+}
+.container .products .note {
+    height: 50px;
+    width: 100%;
+}
+.container .products .note input {
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+
 .container .payment-area {
     height: calc(100% - 20px);
     width: 30%;
@@ -60,22 +85,8 @@ body {
     border-radius: 10px;
 
 }
-
-.container .product-list .product {
-    height: calc(100% - 50px);
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-}
-.container .product-list .note input {
-    height: 40px;
-    width: calc(100% - 10px);
-    border-radius: 5px;
-    border: none;
-    padding: 5px 5px;
-}
 .footer {
-    height: calc(100% - 60px - 90%);
+    height: 8%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -88,4 +99,34 @@ body {
     height: 30px;
     color: white;
     background-color: #0070F4;
+}
+.suggest-search {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+}
+.suggest-search:hover {
+    background: antiquewhite;
+}
+.suggest-search img{
+    width: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.suggest-search info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result {
+    background: white;
+    position: absolute;
+    border-radius: 5px;
+    top: 70px;
+    width: 45%;
+    left: 40px;
+}
+.hide {
+    display: none;
 }
