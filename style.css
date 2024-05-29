@@ -3,14 +3,14 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: "Roboto";
+    font-family: "Montserrat", "Helvetica";
 }
 body {
     height: 100vh;
 }
 
 .search-area {
-    height: 60px;
+    height: 10%;
     width: 100%;
     background-color: #0070F4;
     display: flex;
@@ -18,24 +18,30 @@ body {
     justify-content: space-between;
     padding: 0 10px;
 }
-.search-area input {
-    width: 500px;
+.search-area .search-bar {
+    width: 80%;
+    height: 40px;
+}
+.search-area .search-bar input {
+    width: 50%;
     height: 40px;
     border-radius: 5px;
     border: none;
 }
 .search-area .staff-name {
-
+    width: 20%;
+    color: white;
 }
+
 .container {
-    height: 90%;
+    height: 80%;
     width: 100%;
     background-color: whitesmoke;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
 }
-.container .product-list {
+.container .products {
     height: 100%;
     width: 70%;
 }
@@ -61,21 +67,18 @@ body {
 
 }
 
-.container .product-list .product {
+.container .products {
     height: calc(100% - 50px);
+    width: 100%;
+}
+.container .products .note {
+    height: 50px;
     width: 100%;
     border-radius: 5px;
     border: none;
 }
-.container .product-list .note input {
-    height: 40px;
-    width: calc(100% - 10px);
-    border-radius: 5px;
-    border: none;
-    padding: 5px 5px;
-}
 .footer {
-    height: calc(100% - 60px - 90%);
+    height: 10%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -88,4 +91,29 @@ body {
     height: 30px;
     color: white;
     background-color: #0070F4;
+}
+
+
+.suggestions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.products {
+    cursor: pointer;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.products:hover {
+    background: antiquewhite;
 }
