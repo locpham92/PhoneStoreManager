@@ -52,6 +52,18 @@ body {
 .container .products .product {
     height: calc(100% - 50px);
     width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+.infor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 50px;
 }
 .container .products .note {
     height: 50px;
@@ -104,6 +116,8 @@ body {
     display: flex;
     cursor: pointer;
     padding: 10px;
+    overflow: auto;
+
 }
 .suggest-search:hover {
     background: antiquewhite;
@@ -120,13 +134,19 @@ body {
 }
 
 .search-result {
+    width: 45%;
+    height: 500px;
     background: white;
     position: absolute;
     border-radius: 5px;
     top: 70px;
-    width: 45%;
     left: 40px;
+    overflow: auto;
 }
 .hide {
     display: none;
+}
+.container .products .product img {
+    width: 100px;
+    height: auto;
 }
