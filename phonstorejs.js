@@ -61,10 +61,10 @@ function addOrder() {
             let txtSearch = e.target.value.trim().toLowerCase();
             var products = document.querySelector('.search-result')
             products.innerHTML=``;
+            var newProduct = document.createElement('div');
+            newProduct.classList.add('suggest-search');
             for (let i = 0; i < list.length; i++) {
-                var newProduct = document.createElement('div');
-                newProduct.classList.add('suggest-search');
-                if (list[i].name.toLowerCase().includes(txtSearch) && txtSearch !== null) {
+                if (list[i].name.toLowerCase().includes(txtSearch)) {
                     newProduct.innerHTML=`<img src="${list[i].image}">
                                           <div class="info">
                                             <div>${list[i].name}</div>
