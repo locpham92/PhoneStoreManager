@@ -9,19 +9,6 @@
     <script src="https://kit.fontawesome.com/fbbb6d55bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--<button onclick="showHome()">HOME</button> | <button onclick="showFormAdd()">ADD</button>-->
-<!--<div id="search" class="search-area">-->
-<!--    <input type="text" id="searchName" placeholder="Search...">-->
-<!--    <button onclick="search()">Search</button>-->
-<!--</div>-->
-<!--<div id="root">-->
-
-<!--</div>-->
-
-
-<!--PHẦN TẠO ĐƠN HÀNG CHO USER-->
-<!--("localhost:8080/orders)-->
-
 <div class="search-area">
     <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -33,26 +20,72 @@
     </div>
 
     <div class="staff-name">
-        <span>Name</span>
+        <span>Phạm Quý Lộc</span>
+        <button class="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     </div>
 </div>
 
 <div class="container">
 
     <div class="products" >
-        <ul class="product">
-        </ul>
+        <div class="product">
+            <div id="cart" class="cart">
+
+            </div>
+        </div>
         <div class="note">
             <input type="text" id="note" placeholder="Thêm ghi chú">
         </div>
     </div>
 
     <div class="payment-area">
-        <button>THANH TOÁN</button>
+        <div class="time">
+            <span id="time"></span>
+        </div>
+        <div class="customers">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm khách hàng...">
+                <button class="add-button"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
+        <div class="payment">
+            <div class="amount">
+                <h3> Tổng tiền hàng: </h3>
+                <span class="total-before"></span>
+            </div>
+            <div class="discount">
+                <h3> Giảm giá: </h3>
+                <input type="text" id="number">
+            </div>
+            <div class="total">
+                <h3>Khách thanh toán:</h3>
+                <span class="total-after"></span>
+            </div>
+
+        </div>
+        <div class="pay">
+            <button onclick="confirmOrder()" class="pay-button">THANH TOÁN</button>
+        </div>
     </div>
 </div>
+<div class="confirm">
+    <div class="information">
+        <div class="customer">
+            Khách hàng:
+        </div>
+        <div>
+            Sản phẩm:
+        </div>
+    </div>
+
+    <div class="action">
+        <button id="OK" class="ok">OK</button>
+        <button id="makeOrder" onclick="createOrder()" class="back">Back</button>
+    </div>
+
+</div>
 <div class="footer">
-    <button class="btn" onclick="saleReport()">Báo cáo bán hàng</button>
+    <button class="report-btn" onclick="saleReport()">Báo cáo bán hàng</button>
 </div>
 </body>
 </html>

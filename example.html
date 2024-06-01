@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input với Icon và Button</title>
+    <script src="https://kit.fontawesome.com/fbbb6d55bb.js" crossorigin="anonymous"></script>
+    <style>
+        .input-container {
+            display: flex;
+            align-items: center;
+            border: 2px solid #4daf54;
+            padding: 5px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .input-container input {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .input-container button {
+            background-color: #4daf54;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .input-container i {
+            margin-right: 10px;
+            color: #4daf54;
+        }
+        .card_size {
+            /*display: flex;*/
+            /*!*align-items: center;*!*/
+            margin-bottom: 10px;
+            transition: 0.5s;
+        }
+        /*.card_size span {*/
+        /*    padding: 2px 5px;*/
+        /*    background: #dadada;*/
+        /*    border-radius: 5px;*/
+        /*    margin: 2px 4px;*/
+        /*    color: black;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="input-container">
+    <i class="fas fa-search"></i> <!-- Icon, sử dụng FontAwesome hoặc bất kỳ thư viện icon nào -->
+    <input type="text" placeholder="Search...">
+    <button>Go</button>
+</div>
+<div class="card_size">
+    <h3>Size:</h3>
+    <span>36</span>
+    <span>37</span>
+    <span>38</span>
+    <span>40</span>
+    <span>41</span>
+</div>
+</body>
+</html>
