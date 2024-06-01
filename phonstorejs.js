@@ -40,17 +40,22 @@ function addOrder() {
 }
 let html = '';
 let count = 0;
+let products = [];
 function addToCart(id) {
 
     axios.get(`http://localhost:8080/products/${id}`).then ((response) => {
         let product = response.data;
+        let name = product.name;
+        let price = product.price;
+        let quantity = 1;
         count++;
         html +=`   <div class="infor">
                    <button class="trash"><i class="fa-solid fa-trash"></i></button>
-                   <span>${product.name}</span>
+                   <span>${count}. ${product.name}</span>
                    <input type="text" value="1">
                    <span>${product.price}</span>   
  </div>` ;
+        products.push(product);
 
     })
     document.getElementById('cart').innerHTML = html;

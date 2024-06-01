@@ -116,7 +116,7 @@ body {
 }
 
 .suggest-search {
-    width: 45%;
+    width: 100%;
     height: 100px;
     background: white;
     display: flex;
@@ -126,7 +126,7 @@ body {
 }
 
 .info:hover {
-    background: silver;
+    background: #d9eafd;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -250,6 +250,25 @@ body {
     bottom: 10px;
 }
 
+.confirm {
+    display: none;
+    top: 25%;
+    left: 25%;
+    width: 20%;
+    height: 50%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    position: fixed;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.action {
+    display: flex;
+    justify-content: space-around;
+}
+
 /*-----------------FOOTER-------------------*/
 
 .footer {
@@ -300,24 +319,7 @@ body {
     cursor: pointer;
 }
 
-.confirm {
-    display: none;
-    top: 25%;
-    left: 25%;
-    width: 20%;
-    height: 50%;
-    background-color: white;
-    border-radius: 15px;
-    padding: 10px;
-    position: fixed;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow: auto;
-}
 
-.action {
-    display: flex;
-    justify-content: space-around;
-}
 .action button{
     padding: 10px 10px;
     border: none;
@@ -327,5 +329,13 @@ body {
     color: white;
 }
 .action:hover button {
+    cursor: pointer;
+}
+
+.trash {
+    outline: none;
+    border: none;
+}
+.trash:hover {
     cursor: pointer;
 }
