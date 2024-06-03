@@ -1,10 +1,10 @@
-let countOrderDetail = 1;
+let products = [];
 addOrder();
 function addOrder() {
     axios.get("http://localhost:8080/products").then((response) => {
         const now = new Date();
         const formattedDate = now.toLocaleString();
-        document.getElementById("time").innerHTML = formattedDate;
+        document.getElementById("time").innerText = formattedDate;
         let list = response.data;
         let searchInput = document.getElementById('search');
         searchInput.addEventListener('input', function(e){
@@ -15,7 +15,7 @@ function addOrder() {
             for (let i = 0; i < list.length; i++) {
                 let newProduct = document.createElement('div');
                 newProduct.classList.add('suggest-search');
-                if (list[i].name.toLowerCase().includes(txtSearch) && (txtSearch !== '')) {
+                if (list[i].name.toLowerCase().contains(txtSearch) && (txtSearch !== '')) {
                     newProduct.innerHTML=`<div class="info" id="info${list[i].id}" onclick="addToCart(${list[i].id})">
                                           <div><img src="${list[i].image}"></div>
                                           <div>${list[i].name}</div>
@@ -24,7 +24,6 @@ function addOrder() {
                                           </div>` ;
                     products.style.display = 'block';
                     products.appendChild(newProduct);
-
                 }
                 else {
                     products.style.display = 'none';
@@ -39,7 +38,6 @@ function addOrder() {
         })
     })
 }
-let products = [];
 
 function addToCart(productId) {
     axios.get("http://localhost:8080/products").then((response) => {
@@ -56,6 +54,7 @@ function addToCart(productId) {
         }
     });
 }
+
 function displayCart() {
     let cartElement = document.getElementById('cart');
     cartElement.innerHTML = ``;
@@ -81,17 +80,18 @@ function displayCart() {
     });
     totalCart();
 }
+
 function deleteCart(index) {
     products.splice(index, 1);
     displayCart();
 }
+
 function totalCart() {
     let total = 0;
     for (let i = 0; i < products.length; i++) {
         let amount = parseFloat(document.getElementById(`quantityOnCart${i}`).value);
         total += (products[i].price*amount);
     }
-
     document.getElementById("totalBefore").innerHTML = total;
     let discount = 0;
     let dElement = document.getElementById('discount');
@@ -107,6 +107,7 @@ function totalCart() {
         document.getElementById('totalAfter').innerHTML = total-discount;
     });
 }
+
 function addC(index) {
     let value = parseInt(document.getElementById(`quantityOnCart${index}`).value);
     document.getElementById(`quantityOnCart${index}`).value = value + 1;
@@ -115,6 +116,7 @@ function addC(index) {
     totalCart();
 
 }
+
 function subC(index) {
     let value = parseInt(document.getElementById(`quantityOnCart${index}`).value);
     if (value > 1) {document.getElementById(`quantityOnCart${index}`).value = value - 1;}
@@ -122,6 +124,7 @@ function subC(index) {
     document.getElementById(`price${index}`).innerHTML = price*(value-1);
     totalCart();
 }
+
 function confirmOrder() {
     let confirm = document.querySelector('.confirm');
     confirm.style.display = 'block';
@@ -129,45 +132,43 @@ function confirmOrder() {
     const now = new Date();
     const formattedDate = now.toLocaleString();
     let total = parseFloat(document.getElementById('totalAfter').innerText);
-
     let newOrder = {
         "time": formattedDate,
         "total": total,
     }
-    axios.post("http://localhost:8080/orders", newOrder).then(() => {
-
-    })
+    let orderId = 0;
+    axios.post("http://localhost:8080/orders", newOrder).then((response) => {
+       let orderId = response.data;
     for (let i = 0; i < products.length; i++) {
         let productId = products[i].id;
         let amount = parseInt(document.getElementById(`quantityOnCart${i}`).value);
         let newOrderDetail = {
-            "orderId": 6,
+            "orderId": orderId,
             "productId": productId,
             "quantity": amount,
             "customerName": "Loc",
             "customerPhone": "0323243243"
         }
-
         axios.post("http://localhost:8080/orderdetail", newOrderDetail).then(() => {
-
         })
-
     }
+    })
 }
 function finishOrder() {
     let confirm = document.querySelector('.confirm');
     confirm.style.display = 'none';
-    //location.reload();
+    location.reload();
 }
 
 function saleReport() {
     let overview = document.querySelector('.overview');
     overview.style.display = 'block';
+    let totalByDay = 0;
     axios.get("http://localhost:8080/orders").then((response) => {
         let list = response.data;
         let html = `
              <table class="orderTable">
-               <tr style="text-align: center">
+               <tr style="text-align: center; background-color: #99FFFF">
                    <td>ID</td>
                    <td>TIME</td>
                    <td>TOTAL</td>
@@ -175,13 +176,14 @@ function saleReport() {
                </tr>
             `;
             for (let i =0;i < list.length;i++) {
+                totalByDay += list[i].total;
                 html += `
                 <tr>
                     <td>${list[i].id}</td>
                     <td>${list[i].time}</td>
                     <td>${list[i].total}</td>
                     <td>
-                    <button class="detailbtn" onclick="showOrderDetail()">DETAIL</button>
+                    <button class="detailbtn" onclick="showOrderDetail(${list[i].id})">DETAIL</button>
            
                     </td>
                 </tr>`;
@@ -190,15 +192,46 @@ function saleReport() {
                <tr style="text-align: center">
                    <td></td>
                    <td>TOTAL</td>
-                   <td>10000</td>
+                   <td>${totalByDay}</td>
                    <td></td>
                </tr>
             `;
             html += `</table>`;
             document.getElementById("orderList").innerHTML = html;
-
         });
 }
-function showOrderDetail() {
+function showOrderDetail(index) {
+    let orderDetail = document.querySelector('.orderDetail');
+    orderDetail.style.display = 'block';
+    axios.get(`http://localhost:8080/orderdetail/${index}`).then((response) => {
+        let list = response.data;
+        console.log(list);
+        let html = `
+             <table class="orderTable">
+               <tr style="text-align: center; background-color: #99FFFF">
+                   <td>ID</td>
+                   <td>NAME</td>
+                   <td>QUANTITY</td>
+               </tr>
+            `;
+        for (let i =0;i < list.length;i++) {
+            html += `
+                <tr>
+                    <td>${list[i].id}</td>
+                    <td>${list[i].name}</td>
+                    <td>${list[i].quantity}</td>
+                </tr>`;
+        }
+        document.getElementById("orderDetail").innerHTML = html;
+    });
+}
 
+function close1() {
+    let overview = document.querySelector('.overview');
+    overview.style.display = 'none';
+}
+
+function close2() {
+    let orderDetail = document.querySelector('.orderDetail');
+    orderDetail.style.display = 'none';
 }

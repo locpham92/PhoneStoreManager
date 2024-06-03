@@ -93,7 +93,7 @@ body {
     border: none;
     outline: none;
     border-bottom: 1px solid #808080;
-    align-text: center;
+    text-align: center;
     width: 40px;
 }
 
@@ -216,6 +216,11 @@ body {
     background: white;
     cursor: pointer;
 }
+.payment {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
 /*-----Thông tin thanh toán-----*/
 
 .amount {
@@ -286,16 +291,35 @@ body {
 }
 .overview {
     display: none;
-    top: 25%;
-    left: 15%;
-    width: 50%;
-    height: 50%;
+    top: 10%;
+    left: 10%;
+    width: 500px;
+    height: 500px;
     background-color: white;
     border-radius: 15px;
     padding: 10px;
     position: fixed;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: auto;
+}
+
+.overview button {
+    right: 10px;
+}
+
+.orderDetail {
+    display: none;
+    top: 10%;
+    left: 43%;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    position: fixed;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    z-index: 1000;
 }
 .orderTable {
     border: none;
@@ -311,6 +335,7 @@ td {
     text-align: center;
 }
 /*!*---------------------Thêm CSS cho button-----------------*!*/
+
 .detailbtn {
     border-radius: 5px;
     border: none;
@@ -387,5 +412,15 @@ td {
 .add, .sub {
     border: none;
     background: white;
+    cursor: pointer;
+}
+.close-btn {
+    border: none;
+    outline: none;
+    width: 15px;
+    height: 15px;
+
+}
+.close-btn:hover {
     cursor: pointer;
 }
