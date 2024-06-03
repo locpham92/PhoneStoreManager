@@ -67,31 +67,51 @@ body {
     height: 100%;
     width: 70%;
 }
-.product {
+.cart {
     height: calc(100% - 50px);
-    width: 100%;
+    width: 98%;
     overflow: auto;
     display: flex;
     flex-direction: column;
     padding: 10px;
+    overflow: auto;
 }
-
-.cart {
-
-}
-.infor {
+.product {
+    width: 98%;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    margin: 10px;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    height: 80px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+.product input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #808080;
+    align-text: center;
+    width: 40px;
+}
+
+.cart img {
+    width: 50px;
+    height: 50px;
+}
+.s {
+    display: flex;
+    justify-content: space-around;
+}
+
 .note {
     display: flex;
     justify-content: left;
 
 }
+
 .note input {
     padding: 10px;
     width: 98%;
@@ -142,25 +162,10 @@ body {
     height: 100%;
 }
 
-
-
 .hide {
     display: none;
 }
 
-.product img {
-    width: 50px;
-    height: 50px;
-}
-
-.cart {
-    display: block;
-    border-radius: 5px;
-    background: white;
-    margin-top: 10px;
-    margin-right: 10px;
-    box-shadow: 0 1px 8px rgba(102, 115, 143, 0.5);
-}
 /*----------------------PAYMENT-----------------------*/
 
 .payment-area {
@@ -200,6 +205,7 @@ body {
     padding: 5px;
     max-width: 100%;
     width: 100%;
+    height: 100%;
 }
 .customers i {
     margin-right: 10px;
@@ -278,7 +284,45 @@ body {
     align-items: center;
     padding: 0 10px;
 }
-/*---------------------Thêm CSS cho button-----------------*/
+.overview {
+    display: none;
+    top: 25%;
+    left: 15%;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    position: fixed;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+.orderTable {
+    border: none;
+    outline: none;
+    width: 100%;
+    border-collapse: collapse;
+}
+.orderTable tr:nth-child(even) {
+    background-color: #FAF0E6;
+}
+td {
+    padding: 10px;
+    text-align: center;
+}
+/*!*---------------------Thêm CSS cho button-----------------*!*/
+.detailbtn {
+    border-radius: 5px;
+    border: none;
+    width: 60px;
+    height: 40px;
+    background-color: #0070F4;
+}
+
+.detailbtn:hover {
+    cursor: pointer;
+}
+
 .pay-button {
     position: absolute;
     margin-left: 10px;
@@ -337,5 +381,11 @@ body {
     border: none;
 }
 .trash:hover {
+    cursor: pointer;
+}
+
+.add, .sub {
+    border: none;
+    background: white;
     cursor: pointer;
 }

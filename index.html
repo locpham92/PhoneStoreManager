@@ -7,14 +7,20 @@
     <script src="phonstorejs.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/fbbb6d55bb.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+<div class="overview">
+    <div id="orderList" class="orderList">
+
+    </div>
+</div>
 <div class="search-area">
     <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Tìm sản phẩm...">
+        <input type="text" id="search" placeholder="Tìm sản phẩm...">
     </div>
-    <div class="search-result">
+    <div class="search-result" id="search-result">
         <div class="suggest-search">
         </div>
     </div>
@@ -28,10 +34,8 @@
 <div class="container">
 
     <div class="products" >
-        <div class="product">
-            <div id="cart" class="cart">
+        <div class="cart" id="cart">
 
-            </div>
         </div>
         <div class="note">
             <input type="text" id="note" placeholder="Thêm ghi chú">
@@ -51,15 +55,15 @@
         <div class="payment">
             <div class="amount">
                 <h3> Tổng tiền hàng: </h3>
-                <span class="total-before"></span>
+                <h3 class="total-before" id="totalBefore"></h3>
             </div>
             <div class="discount">
                 <h3> Giảm giá: </h3>
-                <input type="text" id="number">
+                <input value = "0" id="discount">
             </div>
             <div class="total">
                 <h3>Khách thanh toán:</h3>
-                <span class="total-after"></span>
+                <div id="totalAfter"></div>
             </div>
 
         </div>
@@ -79,8 +83,7 @@
     </div>
 
     <div class="action">
-        <button id="OK" class="ok">OK</button>
-        <button id="makeOrder" onclick="createOrder()" class="back">Back</button>
+        <button id="OK" class="ok" onclick="finishOrder()">OK</button>
     </div>
 
 </div>
